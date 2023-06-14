@@ -25,7 +25,7 @@ pub fn start(stdin: Stdin, mut stdout: Stdout) {
             if token == Token::Eof {
                 break;
             }
-            writeln!(&stdout, "{token:?}").expect("Token should be written successfully!");
+            writeln!(&stdout, "{token}").expect("Token should be written successfully!");
         }
     }
 }

@@ -5,11 +5,6 @@ use crate::token::Token;
 pub struct Lexer<'a> {
     /// Source code string
     input: Peekable<Chars<'a>>,
-    /// Current position in `input` (points to current char)
-    // position: usize,
-    /// Current reading position in `input` (after current char)
-    // read_position: usize,
-
     /// Current char under examination
     ch: char,
 }
@@ -18,14 +13,13 @@ impl Default for Lexer<'_> {
     fn default() -> Self {
         Self {
             input: "".chars().peekable(),
-            // position: Default::default(),
-            // read_position: Default::default(),
             ch: Default::default(),
         }
     }
 }
 
 impl<'a> Lexer<'a> {
+    #[must_use]
     pub fn new(input: &'a str) -> Self {
         let mut lexer = Self {
             input: input.chars().peekable(),
